@@ -28,8 +28,8 @@ const Single = () => {
                         <Pressable style={styles.balanceActionButton} onPress={() => router.push("/home/card/topup")}>
                             <Text style={styles.balanceActionButtonText}>Topup</Text>
                         </Pressable>
-                        <Pressable style={styles.balanceActionButton} onPress={() => router.push("/home/card/withdraw")}>
-                            <Text style={styles.balanceActionButtonText}>Withdraw</Text>
+                        <Pressable style={[styles.balanceActionButton,{backgroundColor:"transparent"}]} onPress={() => router.push("/home/card/withdraw")}>
+                            <Text style={{color:"#fff"}}>Withdraw</Text>
                         </Pressable>
                     </View>
                 </View>

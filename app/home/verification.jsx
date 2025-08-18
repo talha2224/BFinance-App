@@ -18,23 +18,26 @@ const Verification = () => {
   const [message, setMessage] = useState('')
 
   const handleStartVerification = async () => {
-    const { status } = await ImagePicker.requestCameraPermissionsAsync()
-    if (status !== 'granted') {
-      setMessage('Camera permission is required to proceed.')
-      return
+    const { status: cameraStatus } = await ImagePicker.requestCameraPermissionsAsync();
+    const { status: mediaStatus } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+
+    if (cameraStatus !== 'granted' || mediaStatus !== 'granted') {
+      setMessage('Camera and media permissions are required to proceed.');
+      return;
     }
 
     let result = await ImagePicker.launchCameraAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
       quality: 0.7,
-    })
+    });
 
     if (!result.canceled) {
-      setPhotoUri(result.assets[0].uri)
-      setStatus('preview')
+      setPhotoUri(result.assets[0].uri);
+      setStatus('preview');
     }
-  }
+  };
+
 
   const handleConfirmPhoto = () => {
     setStatus('processing')
