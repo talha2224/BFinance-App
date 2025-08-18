@@ -17,27 +17,48 @@ const Verification = () => {
   const [photoUri, setPhotoUri] = useState(null)
   const [message, setMessage] = useState('')
 
+  // 📷 Old Camera function (still available if you want it)
   const handleStartVerification = async () => {
-    const { status: cameraStatus } = await ImagePicker.requestCameraPermissionsAsync();
-    const { status: mediaStatus } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    const { status: cameraStatus } = await ImagePicker.requestCameraPermissionsAsync()
+    const { status: mediaStatus } = await ImagePicker.requestMediaLibraryPermissionsAsync()
 
     if (cameraStatus !== 'granted' || mediaStatus !== 'granted') {
-      setMessage('Camera and media permissions are required to proceed.');
-      return;
+      setMessage('Camera and media permissions are required to proceed.')
+      return
     }
 
     let result = await ImagePicker.launchCameraAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
       quality: 0.7,
-    });
+    })
 
     if (!result.canceled) {
-      setPhotoUri(result.assets[0].uri);
-      setStatus('preview');
+      setPhotoUri(result.assets[0].uri)
+      setStatus('preview')
     }
-  };
+  }
 
+  // 🖼️ New Gallery Picker
+  const handlePickFromGallery = async () => {
+    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync()
+
+    if (status !== 'granted') {
+      setMessage('Permission to access gallery is required.')
+      return
+    }
+
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      quality: 0.7,
+    })
+
+    if (!result.canceled) {
+      setPhotoUri(result.assets[0].uri)
+      setStatus('preview')
+    }
+  }
 
   const handleConfirmPhoto = () => {
     setStatus('processing')
@@ -63,7 +84,7 @@ const Verification = () => {
             style={{ width: 250, height: 400, borderRadius: 12 }}
           />
           <View style={{ flexDirection: 'row', marginTop: 20 }}>
-            <Pressable style={styles.startButton} onPress={handleStartVerification}>
+            <Pressable style={styles.startButton} onPress={handlePickFromGallery}>
               <Text style={styles.startButtonText}>Retake</Text>
             </Pressable>
             <Pressable
@@ -111,8 +132,10 @@ const Verification = () => {
             <Ionicons name="checkmark-circle-outline" size={20} color="#00FF7F" />
             <Text style={styles.listItemText}>Liveness check</Text>
           </View>
-          <Pressable style={styles.startButton} onPress={handleStartVerification}>
-            <Text style={styles.startButtonText}>Start</Text>
+
+          {/* Camera Option */}
+          <Pressable style={styles.startButton} onPress={handlePickFromGallery}>
+            <Text style={styles.startButtonText}>Take Photo</Text>
           </Pressable>
         </View>
 
