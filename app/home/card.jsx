@@ -19,7 +19,7 @@ const Card = () => {
       </Pressable>
       <ScrollView contentContainerStyle={styles.cardList}>
         {/* Card 1 */}
-        <Pressable onPress={()=>router.push("/home/card/single")} style={styles.cardItem}>
+        <Pressable onPress={() => router.push({ pathname: "/home/card/single", params: { index: 1 } })} style={styles.cardItem}>
           <Image source={card1_img || { uri: placeholderCard1 }} style={styles.cardImage} />
           <View style={styles.cardInfo}>
             <Text style={styles.cardName}>BFinance Card</Text>
@@ -28,7 +28,7 @@ const Card = () => {
           <Text style={styles.cardBalance}>1330.92 USD</Text>
         </Pressable>
         {/* Card 2 */}
-        <Pressable onPress={()=>router.push("/home/card/single")} style={styles.cardItem}>
+        <Pressable onPress={() => router.push({ pathname: "/home/card/single", params: { index: 1 } })} style={styles.cardItem}>
           <Image source={card2_img || { uri: placeholderCard2 }} style={styles.cardImage} />
           <View style={styles.cardInfo}>
             <Text style={styles.cardName}>BFinance Card</Text>
@@ -37,7 +37,7 @@ const Card = () => {
           <Text style={styles.cardBalance}>1330.92 USD</Text>
         </Pressable>
         {/* Card 3 */}
-        <Pressable onPress={()=>router.push("/home/card/single")} style={styles.cardItem}>
+        <Pressable onPress={() => router.push({ pathname: "/home/card/single", params: { index: 3 } })} style={styles.cardItem}>
           <Image source={card3_img || { uri: placeholderCard3 }} style={styles.cardImage} />
           <View style={styles.cardInfo}>
             <Text style={styles.cardName}>BFinance Card</Text>

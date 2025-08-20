@@ -48,6 +48,7 @@ export default function RootLayout() {
         <Stack.Screen name="home/withdraw/success"/>
 
 
+        <Stack.Screen name="home/card/notfound"/>
         <Stack.Screen name="home/card/single"/>
         <Stack.Screen name="home/card/edit"/>
         <Stack.Screen name="home/card/pin"/>

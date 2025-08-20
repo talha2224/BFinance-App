@@ -59,7 +59,7 @@ const Home = () => {
         <View style={styles.accountsSection}>
           <Text style={styles.sectionTitle}>FIAT</Text>
           {/* Fiat Accounts */}
-          <View style={styles.accountItem}>
+          <Pressable onPress={()=>router.push("/home/card/notfound")} style={styles.accountItem}>
             <View style={styles.accountIcon}>
               <Text style={styles.accountIconText}>$</Text>
             </View>
@@ -67,8 +67,8 @@ const Home = () => {
               <Text style={styles.accountName}>Dollars</Text>
             </View>
             <Text style={styles.accountValue}>10,000 USD</Text>
-          </View>
-          <View style={styles.accountItem}>
+          </Pressable>
+          <Pressable onPress={()=>router.push("/home/card/notfound")} style={styles.accountItem}>
             <View style={styles.accountIcon}>
               <Text style={styles.accountIconText}>€</Text>
             </View>
@@ -76,7 +76,7 @@ const Home = () => {
               <Text style={styles.accountName}>Euros</Text>
             </View>
             <Text style={styles.accountValue}>10,000 EUR</Text>
-          </View>
+          </Pressable>
 
           <Text style={[styles.sectionTitle, { marginTop: 20 }]}>CRYPTO</Text>
           {/* Crypto Accounts */}

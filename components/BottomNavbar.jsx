@@ -19,7 +19,7 @@ const BottomNavbar = () => {
       <View style={styles.navBar}>
         {tabs.map((tab) => (
           <TouchableOpacity key={tab.name} style={styles.navItem} onPress={() => router.push(tab?.link === "home/index" ? "home" : tab?.link)}>
-            {tab?.link === route?.name ? tab.activeIcon : tab.icon}
+            {route?.name?.includes(tab?.link) ? tab.activeIcon : tab.icon}
           </TouchableOpacity>
         ))}
       </View>

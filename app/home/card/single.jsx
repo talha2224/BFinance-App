@@ -1,11 +1,13 @@
 import { Ionicons } from '@expo/vector-icons';
-import { router } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import apple_logo from '../../../assets/images/auth/apple_logo.png';
+import apple_logo from '../../../assets/images/card/apple.png';
 import card_img from '../../../assets/images/card/card.png';
+import card_green_img from '../../../assets/images/card/card_3.png';
+import shadow_img from '../../../assets/images/card/shadow.png';
 
 const Single = () => {
-    
+    const { index } = useLocalSearchParams();
     const transactions = [
         { type: 'debit', label: 'APPLE.COM/BILL', time: '19:20', amount: '-100', },
         { type: 'credit', label: 'APPLE.COM/BILL', time: '19:20', amount: '$10.32' },
@@ -18,8 +20,18 @@ const Single = () => {
                 <Text style={styles.headerTitle}>Card *1234</Text>
             </Pressable>
 
+            {/* SHADOW */}
+            {
+                index == 3 && (
+                    <Pressable onPress={() => router.back()} style={{ position: "absolute", top: 0, left: 0, right: 0, zIndex: 1 }}>
+                        <Image source={shadow_img} />
+                    </Pressable>
+                )
+            }
+
             <ScrollView contentContainerStyle={styles.scrollContent}>
-                <Image source={card_img} style={styles.cardImage} />
+
+                <Image source={index == 3 ? card_green_img : card_img} style={styles.cardImage} />
 
                 <View style={styles.balanceContainer}>
                     <Text style={styles.balanceTitle}>Card's balance</Text>
@@ -28,23 +40,29 @@ const Single = () => {
                         <Pressable style={styles.balanceActionButton} onPress={() => router.push("/home/card/topup")}>
                             <Text style={styles.balanceActionButtonText}>Topup</Text>
                         </Pressable>
-                        <Pressable style={[styles.balanceActionButton,{backgroundColor:"transparent"}]} onPress={() => router.push("/home/card/withdraw")}>
-                            <Text style={{color:"#fff"}}>Withdraw</Text>
+                        <Pressable style={[styles.balanceActionButton, { backgroundColor: "transparent" }]} onPress={() => router.push("/home/card/withdraw")}>
+                            <Text style={{ color: "#fff" }}>Withdraw</Text>
                         </Pressable>
                     </View>
                 </View>
 
                 <View style={styles.cardActions}>
                     <Pressable style={styles.cardActionItem} onPress={() => router.push("/home/card/edit")}>
-                        <Ionicons name="eye-outline" size={24} color="#fff" />
+                        <View style={{ width: 40, height: 40, justifyContent: "center", alignItems: "center", borderRadius: 100, backgroundColor: "#000" }}>
+                            <Ionicons name="eye-outline" size={20} color="#fff" />
+                        </View>
                         <Text style={styles.cardActionText}>Show</Text>
                     </Pressable>
                     <Pressable style={styles.cardActionItem} onPress={() => router.push("/home/card/edit")}>
-                        <Ionicons name="snow-outline" size={24} color="#fff" />
+                        <View style={{ width: 40, height: 40, justifyContent: "center", alignItems: "center", borderRadius: 100, backgroundColor: "#000" }}>
+                            <Ionicons name="snow-outline" size={20} color="#fff" />
+                        </View>
                         <Text style={styles.cardActionText}>Freeze</Text>
                     </Pressable>
                     <Pressable style={styles.cardActionItem} onPress={() => router.push("/home/card/edit")}>
-                        <Ionicons name="settings-outline" size={24} color="#fff" />
+                        <View style={{ width: 40, height: 40, justifyContent: "center", alignItems: "center", borderRadius: 100, backgroundColor: "#000" }}>
+                            <Ionicons name="settings-outline" size={20} color="#fff" />
+                        </View>
                         <Text style={styles.cardActionText}>Settings</Text>
                     </Pressable>
                 </View>
@@ -94,7 +112,7 @@ const styles = StyleSheet.create({
         paddingBottom: 20,
     },
     cardImage: {
-        width: '100%',
+        width: '96%',
         height: 250,
         resizeMode: 'contain',
         borderRadius: 12,

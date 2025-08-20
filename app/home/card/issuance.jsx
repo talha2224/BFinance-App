@@ -1,9 +1,10 @@
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import apple_logo from '../../../assets/images/auth/apple_logo.png';
-import google_logo from '../../../assets/images/auth/google_logo.png';
+import apple_logo from '../../../assets/images/card/apple.png';
 import card_img from '../../../assets/images/card/card_2.png';
+import google_logo from '../../../assets/images/card/google.png';
+import samsung_logo from '../../../assets/images/card/samsung.png';
 
 
 const Issuance = () => {
@@ -12,13 +13,13 @@ const Issuance = () => {
       title: 'BFinance Lite',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       image: card_img,
-      platforms: [apple_logo,google_logo],
+      platforms: [apple_logo,google_logo,samsung_logo],
     },
     {
       title: 'BFinance Card',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       image: card_img,
-      platforms: [apple_logo,google_logo],
+      platforms: [apple_logo,google_logo,samsung_logo],
     },
   ];
 
@@ -40,7 +41,9 @@ const Issuance = () => {
               <Text style={styles.cardDescription}>{card.description}</Text>
               <View style={styles.platformLogos}>
                 {card.platforms.map((logo, logoIndex) => (
-                  <Image key={logoIndex} source={logo} style={styles.platformLogo} />
+                  <View style={{backgroundColor:"#000",marginRight:10,display:"flex",justifyContent:"center",alignItems:"center",borderRadius:100,width:30,height:30}}  key={logoIndex} >
+                    <Image source={logo} style={styles.platformLogo} />
+                  </View>
                 ))}
               </View>
             </View>
@@ -101,10 +104,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   platformLogo: {
-    width: 24,
-    height: 24,
+    width:15,
+    height:15,
     resizeMode: 'contain',
-    marginRight: 10,
+    backgroundColor:"#000",
   },
   cardImage: {
     width: 100,
