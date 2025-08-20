@@ -6,11 +6,10 @@ import apple_logo from '../../assets/images/auth/apple_logo.png';
 // Placeholder image since I cannot access local assets
 const placeholderApple = 'https://placehold.co/40x40/000000/FFFFFF?text=🍎';
 
-const History = ({ navigation }) => {
-  
-  const navigateToDetails = () => {
-    console.log('Navigating to history details...');
-    router.push("/home/history_details")
+const History = () => {
+
+  const navigateToDetails = (item) => {
+    router.push({ pathname: "/home/history_details", params: { id:item?.id } })
   };
 
   const historyData = {
@@ -31,7 +30,7 @@ const History = ({ navigation }) => {
   };
 
   const renderHistoryItem = (item) => (
-    <Pressable key={item.id} style={styles.historyItem} onPress={navigateToDetails}>
+    <Pressable key={item.id} style={styles.historyItem} onPress={() => navigateToDetails(item)}>
       <Image source={apple_logo || { uri: placeholderApple }} style={styles.companyLogo} />
       <View style={styles.itemInfo}>
         <Text style={styles.companyName}>{item.company}</Text>
@@ -45,7 +44,7 @@ const History = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Pressable onPress={()=>router.back()} style={styles.header}>
+      <Pressable onPress={() => router.back()} style={styles.header}>
         <Ionicons name="chevron-back" size={24} color="#fff" />
         <Text style={styles.headerTitle}>History</Text>
       </Pressable>
@@ -68,7 +67,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000',
     padding: 20,
-    paddingTop:50
+    paddingTop: 50
   },
   header: {
     flexDirection: 'row',

@@ -1,11 +1,11 @@
 import { Ionicons } from '@expo/vector-icons';
-import { router } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import emirates_img from '../../assets/images/home/emirates.png';
 const placeholderEmirates = 'https://placehold.co/80x80/FF0000/FFFFFF?text=E';
 
 const History_details = () => {
-
+  const { id } = useLocalSearchParams();
   const handleBackPress = () => {
     router.back()
   };
@@ -22,7 +22,7 @@ const History_details = () => {
       <View style={styles.content}>
         <Image source={emirates_img || { uri: placeholderEmirates }} style={styles.companyLogo} />
         <Text style={styles.companyName}>ALIEXPRESS.COM</Text>
-        <Text style={styles.transactionAmount}>-1239 USD</Text>
+        <Text style={[styles.transactionAmount, { color: id == 1 && "#00E675" }]}>{id == "1" ? "+100" : "-1239"} USD</Text>
         <Text style={styles.transactionStatus}>Success</Text>
 
         <View style={styles.infoBox}>
@@ -43,7 +43,7 @@ const History_details = () => {
           </View>
         </View>
 
-        <Pressable onPress={()=>router.push("/home/support")} style={styles.supportButton}>
+        <Pressable onPress={() => router.push("/home/support")} style={styles.supportButton}>
           <Text style={styles.supportButtonText}>Contact support</Text>
         </Pressable>
       </View>
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000',
     padding: 20,
-    paddingTop:60
+    paddingTop: 60
   },
   header: {
     flexDirection: 'row',
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   infoValue: {
-    color: '#fff',
+    color: '#bebebeff',
     fontSize: 16,
     fontWeight: 'bold',
   },
