@@ -5,32 +5,44 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 const Support = () => {
   return (
     <View style={styles.container}>
-      <Pressable onPress={()=>router.back()} style={styles.header}>
+      <Pressable onPress={() => router.back()} style={styles.header}>
         <Ionicons name="chevron-back" size={24} color="#fff" />
         <Text style={styles.headerTitle}>Support</Text>
       </Pressable>
 
       <ScrollView contentContainerStyle={styles.content}>
+        {/* Chat Section */}
         <Text style={styles.sectionTitle}>CHAT</Text>
         <Pressable style={styles.chatItem}>
-          <FontAwesome name="send-o" size={20} color="#fff" />
+          <View style={styles.iconWrapper}>
+            <FontAwesome name="send-o" size={20} color="#fff" />
+          </View>
           <Text style={styles.chatText}>Telegram</Text>
         </Pressable>
+
         <Pressable style={styles.chatItem}>
-          <Ionicons name="logo-whatsapp" size={20} color="#fff" />
+          <View style={styles.iconWrapper}>
+            <Ionicons name="logo-whatsapp" size={20} color="#fff" />
+          </View>
           <Text style={styles.chatText}>Whatsapp</Text>
         </Pressable>
 
+        {/* Phone Section */}
         <Text style={styles.sectionTitle}>PHONE</Text>
         <Pressable style={styles.phoneItem}>
-          <Ionicons name="call-outline" size={20} color="#fff" />
+          <View style={styles.iconWrapper}>
+            <Ionicons name="call-outline" size={20} color="#fff" />
+          </View>
           <View style={styles.phoneInfo}>
             <Text style={styles.phoneNumber}>+1 701 800 0012</Text>
             <Text style={styles.phoneCountry}>United States</Text>
           </View>
         </Pressable>
+
         <Pressable style={styles.phoneItem}>
-          <Ionicons name="call-outline" size={20} color="#fff" />
+          <View style={styles.iconWrapper}>
+            <Ionicons name="call-outline" size={20} color="#fff" />
+          </View>
           <View style={styles.phoneInfo}>
             <Text style={styles.phoneNumber}>+44 7700 107074</Text>
             <Text style={styles.phoneCountry}>United Kingdom</Text>
@@ -46,7 +58,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000',
     padding: 20,
-    paddingTop:50
+    paddingTop: 50,
   },
   header: {
     flexDirection: 'row',
@@ -56,7 +68,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     color: '#fff',
     fontSize: 20,
-    fontWeight: 'semibold',
+    fontWeight: '600',
     marginLeft: 20,
   },
   content: {
@@ -103,6 +115,14 @@ const styles = StyleSheet.create({
     color: '#AAAAAA',
     fontSize: 14,
     marginTop: 2,
+  },
+  iconWrapper: {
+    backgroundColor: '#000',
+    width: 40,
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 100,
   },
 });
 
