@@ -66,25 +66,25 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     color: '#fff',
-    fontSize: 24,
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontWeight: "semibold",
   },
   cardList: {
-    paddingBottom: 80, // Space for the bottom navbar
+    paddingBottom: 80,
   },
   cardItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#1E1E1E',
+    backgroundColor: '#0F0F0F',
     padding: 15,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 15,
   },
   cardImage: {
     width: 80,
     height: 50,
     resizeMode: 'contain',
-    borderRadius: 8,
+    borderRadius: 3,
   },
   cardInfo: {
     flex: 1,
@@ -92,18 +92,19 @@ const styles = StyleSheet.create({
   },
   cardName: {
     color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 17,
+    fontWeight: 'medium',
   },
   cardDetails: {
-    color: '#888',
-    fontSize: 14,
+    color: '#AAAAAA',
+    fontSize: 15,
+    fontWeight:400,
     marginTop: 2,
   },
   cardBalance: {
     color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 15,
+    fontWeight: '400',
   },
 });
 

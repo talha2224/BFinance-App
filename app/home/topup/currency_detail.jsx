@@ -30,10 +30,10 @@ const Currency_detail = () => {
             <Text style={styles.detailSubLabel}>{item.subLabel}</Text>
           </Pressable>
         ))}
-      </ScrollView>
       <View style={styles.footer}>
         <Text style={styles.footerText}>Click on item to copy</Text>
       </View>
+      </ScrollView>
     </View>
   );
 };
@@ -52,17 +52,17 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     color: '#fff',
-    fontSize: 24,
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontWeight: 'semibold',
     marginLeft: 20,
   },
   scrollContent: {
     paddingBottom: 20,
   },
   detailItem: {
-    backgroundColor: '#1E1E1E',
+    backgroundColor: '#0F0F0F',
     padding: 15,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 10,
   },
   detailLabel: {
@@ -71,16 +71,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   detailSubLabel: {
-    color: '#888',
+    color: '#AAAAAA',
     fontSize: 14,
   },
   footer: {
-    marginTop: 'auto',
     alignItems: 'center',
     paddingVertical: 10,
+    marginTop:10
   },
   footerText: {
-    color: '#888',
+    color: '#AAAAAA',
     fontSize: 14,
   },
 });

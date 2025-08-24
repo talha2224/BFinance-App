@@ -2,8 +2,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import apple_logo from '../../../assets/images/auth/apple_logo.png';
-import google_logo from '../../../assets/images/auth/google_logo.png';
 import card_img from '../../../assets/images/card/card_2.png';
+import google_logo from '../../../assets/images/card/google.png';
 
 
 const Single_issuance = () => {
@@ -37,7 +37,9 @@ const Single_issuance = () => {
                 <Text style={styles.cardDescription}>{cardDetails.description}</Text>
                 <View style={styles.platformLogos}>
                     {cardDetails.platforms.map((logo, index) => (
-                        <Image key={index} source={logo} style={styles.platformLogo} />
+                        <View key={index} style={{backgroundColor:"#0f0f0f",borderRadius:100,width:41,height:41,justifyContent:"center",alignItems:"center",marginRight:10}}>
+                            <Image source={logo} style={styles.platformLogo} />
+                        </View>
                     ))}
                 </View>
 
@@ -71,8 +73,8 @@ const styles = StyleSheet.create({
     },
     headerTitle: {
         color: '#fff',
-        fontSize: 24,
-        fontWeight: 'bold',
+        fontSize: 20,
+        fontWeight: 'semibold',
         marginLeft: 20,
     },
     scrollContent: {
@@ -86,17 +88,17 @@ const styles = StyleSheet.create({
         width: 200,
         height: 300,
         resizeMode: 'contain',
-        borderRadius: 12,
+        borderRadius: 16,
     },
     cardTitle: {
         color: '#fff',
-        fontSize: 24,
+        fontSize: 20,
         fontWeight: 'bold',
         textAlign: 'center',
         marginBottom: 10,
     },
     cardDescription: {
-        color: '#888',
+        color: '#AAAAAA',
         fontSize: 14,
         textAlign: 'center',
         marginBottom: 20,
@@ -107,10 +109,8 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     platformLogo: {
-        width: 24,
-        height: 24,
-        resizeMode: 'contain',
-        marginHorizontal: 10,
+        width: 20,
+        height: 20,
     },
     sectionTitle: {
         color: '#fff',
@@ -122,9 +122,9 @@ const styles = StyleSheet.create({
     termItem: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        backgroundColor: '#1E1E1E',
+        backgroundColor: '#0F0F0F',
         padding: 15,
-        borderRadius: 12,
+        borderRadius: 16,
         marginBottom: 10,
     },
     termLabel: {
@@ -132,13 +132,13 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     termValue: {
-        color: '#888',
+        color: '#AAAAAA',
         fontSize: 16,
     },
     issueButton: {
         backgroundColor: '#fff',
         paddingVertical: 15,
-        borderRadius: 12,
+        borderRadius: 16,
         alignItems: 'center',
         marginTop: 20,
         marginBottom: 20,

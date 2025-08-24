@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
-import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
 import profile_img from '../../assets/images/home/profile_img.jpg';
 
 // Placeholder image since I cannot access local assets
@@ -9,15 +9,14 @@ const placeholderProfile = 'https://placehold.co/100x100/333333/FFFFFF?text=P';
 const Profile = () => {
     return (
         <View style={styles.container}>
-            {/* Header */}
-            <View style={styles.header}>
-                <Pressable onPress={()=>router.back()}><Ionicons name="chevron-back" size={24} color="#fff" /></Pressable>
-                <Pressable onPress={()=>router.push("/")}>
-                    <Ionicons name="log-out-outline" size={24} color="#EC594E" />
-                </Pressable>
-            </View>
-
-            <ScrollView contentContainerStyle={styles.scrollContent}>
+            <StatusBar hidden />
+            <View style={{ backgroundColor: "#0F0F0F", padding: 20, borderBottomRightRadius: 20, borderBottomLeftRadius: 20 }}>
+                <View style={styles.header}>
+                    <Pressable onPress={() => router.back()}><Ionicons name="chevron-back" size={24} color="#fff" /></Pressable>
+                    <Pressable onPress={() => router.push("/")}>
+                        <Ionicons name="log-out-outline" size={24} color="#EC594E" />
+                    </Pressable>
+                </View>
                 {/* Profile Info */}
                 <View style={styles.profileInfoContainer}>
                     <Image source={profile_img || { uri: placeholderProfile }} style={styles.profileImage} />
@@ -27,33 +26,46 @@ const Profile = () => {
                         <Text style={styles.verifiedText}>Verified</Text>
                     </View>
                 </View>
+            </View>
+
+            <ScrollView contentContainerStyle={styles.scrollContent}>
 
                 {/* General Section */}
                 <Text style={styles.sectionTitle}>GENERAL</Text>
-                <Pressable onPress={()=>router.push("/home/verification")} style={styles.optionItem}>
-                    <Ionicons name="eye-outline" size={24} color="#fff" />
+                <Pressable onPress={() => router.push("/home/verification")} style={styles.optionItem}>
+                    <View style={{ width: 40, height: 40, backgroundColor: "#000", borderRadius: 100, justifyContent: "center", alignItems: "center" }}>
+                        <Ionicons name="eye-outline" size={20} color="#fff" />
+                    </View>
                     <Text style={styles.optionText}>Identity verification</Text>
                 </Pressable>
 
                 {/* BFinance Section */}
                 <Text style={styles.sectionTitle}>BFINANCE</Text>
-                <Pressable onPress={()=>router.push("/home/support")} style={styles.optionItem}>
-                    <Ionicons name="help-circle-outline" size={24} color="#fff" />
+                <Pressable onPress={() => router.push("/home/support")} style={styles.optionItem}>
+                    <View style={{ width: 40, height: 40, backgroundColor: "#000", borderRadius: 100, justifyContent: "center", alignItems: "center" }}>
+                        <Ionicons name="help-circle-outline" size={20} color="#fff" />
+                    </View>
                     <Text style={styles.optionText}>Support</Text>
                 </Pressable>
 
                 {/* Legal Section */}
                 <Text style={styles.sectionTitle}>LEGAL</Text>
-                <Pressable onPress={()=>router.push("/home/privacy")} style={styles.optionItem}>
-                    <Ionicons name="document-text-outline" size={24} color="#fff" />
+                <Pressable onPress={() => router.push("/home/privacy")} style={styles.optionItem}>
+                    <View style={{ width: 40, height: 40, backgroundColor: "#000", borderRadius: 100, justifyContent: "center", alignItems: "center" }}>
+                        <Ionicons name="document-text-outline" size={20} color="#fff" />
+                    </View>
                     <Text style={styles.optionText}>Privacy Policy</Text>
                 </Pressable>
-                <Pressable onPress={()=>router.push("/home/terms")} style={styles.optionItem}>
-                    <Ionicons name="document-text-outline" size={24} color="#fff" />
+                <Pressable onPress={() => router.push("/home/terms")} style={styles.optionItem}>
+                    <View style={{ width: 40, height: 40, backgroundColor: "#000", borderRadius: 100, justifyContent: "center", alignItems: "center" }}>
+                        <Ionicons name="document-text-outline" size={20} color="#fff" />
+                    </View>
                     <Text style={styles.optionText}>Terms of Use</Text>
                 </Pressable>
-                <Pressable onPress={()=>router.push("/home/aml")} style={styles.optionItem}>
-                    <Ionicons name="document-text-outline" size={24} color="#fff" />
+                <Pressable onPress={() => router.push("/home/aml")} style={styles.optionItem}>
+                    <View style={{ width: 40, height: 40, backgroundColor: "#000", borderRadius: 100, justifyContent: "center", alignItems: "center" }}>
+                        <Ionicons name="document-text-outline" size={20} color="#fff" />
+                    </View>
                     <Text style={styles.optionText}>AML Policy</Text>
                 </Pressable>
             </ScrollView>
@@ -65,17 +77,17 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#000',
-        padding: 20,
-        paddingTop: 50
     },
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
         marginBottom: 30,
+        paddingTop: 20
     },
     scrollContent: {
         paddingBottom: 20,
+        paddingHorizontal: 20
     },
     profileInfoContainer: {
         alignItems: 'center',
@@ -89,11 +101,11 @@ const styles = StyleSheet.create({
     },
     profileName: {
         color: '#fff',
-        fontSize: 24,
+        fontSize: 20,
         fontWeight: 'bold',
     },
     profileEmail: {
-        color: '#888',
+        color: '#AAAAAA',
         fontSize: 16,
         marginBottom: 10,
     },
@@ -109,19 +121,20 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     sectionTitle: {
-        color: '#888',
-        fontSize: 14,
-        fontWeight: 'bold',
+        color: '#AAAAAA',
+        fontSize: 13,
+        fontWeight: '400',
         marginTop: 20,
         marginBottom: 10,
     },
     optionItem: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#1E1E1E',
-        padding: 20,
-        borderRadius: 12,
+        backgroundColor: '#0F0F0F',
+        paddingHorizontal: 15,
+        borderRadius: 16,
         marginBottom: 10,
+        height:68
     },
     optionText: {
         color: '#fff',

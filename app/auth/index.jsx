@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     color: '#fff',
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: 'semibold',
     marginLeft: 20,
   },
   content: {

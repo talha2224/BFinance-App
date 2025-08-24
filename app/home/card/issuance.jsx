@@ -69,16 +69,16 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     color: '#fff',
-    fontSize: 24,
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontWeight: 'semibold',
     marginLeft: 20,
   },
   scrollContent: {
     paddingBottom: 20,
   },
   cardContainer: {
-    backgroundColor: '#1E1E1E',
-    borderRadius: 12,
+    backgroundColor: '#0F0F0F',
+    borderRadius: 16,
     padding: 20,
     marginBottom: 20,
     flexDirection: 'row',
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   cardDescription: {
-    color: '#888',
+    color: '#AAAAAA',
     fontSize: 14,
     marginBottom: 15,
   },

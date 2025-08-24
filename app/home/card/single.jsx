@@ -41,7 +41,7 @@ const Single = () => {
                             <Text style={styles.balanceActionButtonText}>Topup</Text>
                         </Pressable>
                         <Pressable style={[styles.balanceActionButton, { backgroundColor: "transparent" }]} onPress={() => router.push("/home/card/withdraw")}>
-                            <Text style={{ color: "#fff" }}>Withdraw</Text>
+                            <Text style={{ color: "#fff", fontSize: 15, fontWeight: "semibold" }}>Withdraw</Text>
                         </Pressable>
                     </View>
                 </View>
@@ -70,7 +70,9 @@ const Single = () => {
                 <Text style={styles.historyTitle}>TODAY</Text>
                 {transactions.map((item, index) => (
                     <View key={index} style={styles.transactionItem}>
-                        <Image source={apple_logo} style={styles.transactionIcon} />
+                        <View style={{ width: 40, height: 40, backgroundColor: "#161616", borderRadius: 100, justifyContent: "center", alignItems: "center" }}>
+                            <Image source={apple_logo} style={styles.transactionIcon} />
+                        </View>
                         <View style={styles.transactionTextContainer}>
                             <Text style={styles.transactionLabel}>{item.label}</Text>
                             <Text style={styles.transactionTime}>{item.time}</Text>
@@ -104,8 +106,8 @@ const styles = StyleSheet.create({
     },
     headerTitle: {
         color: '#fff',
-        fontSize: 24,
-        fontWeight: 'bold',
+        fontSize: 20,
+        fontWeight: 'semibold',
         marginLeft: 20,
     },
     scrollContent: {
@@ -115,24 +117,24 @@ const styles = StyleSheet.create({
         width: '96%',
         height: 250,
         resizeMode: 'contain',
-        borderRadius: 12,
-        marginBottom: 20,
+        borderRadius: 16,
+        marginBottom: 0,
     },
     balanceContainer: {
-        backgroundColor: '#1E1E1E',
+        backgroundColor: '#0F0F0F',
         padding: 20,
-        borderRadius: 12,
+        borderRadius: 16,
         marginBottom: 20,
     },
     balanceTitle: {
-        color: '#888',
+        color: '#AAAAAA',
         fontSize: 14,
         marginBottom: 5,
     },
     balanceAmount: {
         color: '#fff',
         fontSize: 32,
-        fontWeight: 'bold',
+        fontWeight: 'semibold',
         marginBottom: 15,
     },
     actionButtonsContainer: {
@@ -143,7 +145,7 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 15,
         backgroundColor: '#fff',
-        borderRadius: 12,
+        borderRadius: 16,
         alignItems: 'center',
         marginHorizontal: 5,
     },
@@ -156,7 +158,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         marginBottom: 20,
-        backgroundColor: '#1E1E1E',
+        backgroundColor: '#0F0F0F',
         paddingVertical: 10,
         borderRadius: 10
     },
@@ -169,22 +171,22 @@ const styles = StyleSheet.create({
         marginTop: 5,
     },
     historyTitle: {
-        color: '#888',
+        color: '#AAAAAA',
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: '400',
         marginBottom: 10,
     },
     transactionItem: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#1E1E1E',
+        backgroundColor: '#0F0F0F',
         padding: 15,
-        borderRadius: 12,
+        borderRadius: 16,
         marginBottom: 10,
     },
     transactionIcon: {
-        width: 24,
-        height: 24,
+        width: 20,
+        height: 20,
         resizeMode: 'contain',
     },
     transactionTextContainer: {
@@ -197,7 +199,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     transactionTime: {
-        color: '#888',
+        color: '#AAAAAA',
         fontSize: 12,
     },
     transactionAmount: {

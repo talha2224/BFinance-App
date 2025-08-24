@@ -49,26 +49,26 @@ const styles = StyleSheet.create({
     },
     headerTitle: {
         color: '#fff',
-        fontSize: 24,
-        fontWeight: 'bold',
+        fontSize: 20,
+        fontWeight: 'semibold',
         marginLeft: 20,
     },
     scrollContent: {
         paddingBottom: 20,
     },
     sectionTitle: {
-        color: '#888',
-        fontSize: 14,
-        fontWeight: 'bold',
+        color: '#AAAAAA',
+        fontSize: 13,
+        fontWeight: '400',
         marginTop: 20,
         marginBottom: 10,
     },
     networkItem: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#1E1E1E',
+        backgroundColor: '#0F0F0F',
         padding: 15,
-        borderRadius: 12,
+        borderRadius: 16,
         marginBottom: 10,
     },
     textContainer: {
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     networkSymbol: {
-        color: '#888',
+        color: '#AAAAAA',
         fontSize: 14,
     },
     networkIcon: {

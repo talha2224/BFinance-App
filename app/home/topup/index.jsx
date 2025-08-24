@@ -71,27 +71,28 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     color: '#fff',
-    fontSize: 24,
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontWeight: 'semibold',
     marginLeft: 20,
   },
   scrollContent: {
     paddingBottom: 20,
   },
   sectionTitle: {
-    color: '#888',
-    fontSize: 14,
-    fontWeight: 'bold',
+    color: '#AAAAAA',
+    fontSize: 13,
+    fontWeight: '400',
     marginTop: 20,
     marginBottom: 10,
   },
   currencyItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#1E1E1E',
-    padding: 15,
-    borderRadius: 12,
+    backgroundColor: '#0F0F0F',
+    paddingHorizontal: 15,
+    borderRadius: 16,
     marginBottom: 10,
+    height:58,
   },
   iconContainer: {
     width: 40,
@@ -110,7 +111,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   currencySymbol: {
-    color: '#888',
+    color: '#AAAAAA',
     fontSize: 14,
   },
   cryptoIcon: {

@@ -9,7 +9,7 @@ const placeholderApple = 'https://placehold.co/40x40/000000/FFFFFF?text=🍎';
 const History = () => {
 
   const navigateToDetails = (item) => {
-    router.push({ pathname: "/home/history_details", params: { id:item?.id } })
+    router.push({ pathname: "/home/history_details", params: { id: item?.id } })
   };
 
   const historyData = {
@@ -31,7 +31,9 @@ const History = () => {
 
   const renderHistoryItem = (item) => (
     <Pressable key={item.id} style={styles.historyItem} onPress={() => navigateToDetails(item)}>
-      <Image source={apple_logo || { uri: placeholderApple }} style={styles.companyLogo} />
+      <View style={{ backgroundColor: "#161616", width: 40, height: 40, borderRadius: 100, justifyContent: "center", alignItems: "center", marginRight: 15, }}>
+        <Image source={apple_logo || { uri: placeholderApple }} style={styles.companyLogo} />
+      </View>
       <View style={styles.itemInfo}>
         <Text style={styles.companyName}>{item.company}</Text>
         <Text style={styles.transactionDetails}>
@@ -76,33 +78,32 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     color: '#fff',
-    fontSize: 24,
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontWeight: 'semibold',
     marginLeft: 20,
   },
   historyList: {
     paddingBottom: 20,
   },
   sectionTitle: {
-    color: '#888',
+    color: '#AAAAAA',
     fontSize: 14,
-    fontWeight: 'bold',
+    fontWeight: '400',
     marginTop: 20,
     marginBottom: 10,
   },
   historyItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#1E1E1E',
-    padding: 15,
-    borderRadius: 12,
+    backgroundColor: '#0F0F0F',
+    paddingHorizontal: 15,
+    height: 68,
+    borderRadius: 16,
     marginBottom: 10,
   },
   companyLogo: {
     width: 20,
     height: 20,
-    borderRadius: 20,
-    marginRight: 15,
   },
   itemInfo: {
     flex: 1,
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   transactionDetails: {
-    color: '#888',
+    color: '#AAAAAA',
     fontSize: 14,
     marginTop: 2,
   },

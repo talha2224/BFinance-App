@@ -1,43 +1,14 @@
 import { Ionicons } from '@expo/vector-icons'
+import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons'
 import * as ImagePicker from 'expo-image-picker'
 import { router } from 'expo-router'
 import { useState } from 'react'
-import {
-  ActivityIndicator,
-  Image,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native'
+import { ActivityIndicator, Image, Pressable, ScrollView, StyleSheet, Text, View, } from 'react-native'
 
 const Verification = () => {
   const [status, setStatus] = useState('initial')
   const [photoUri, setPhotoUri] = useState(null)
   const [message, setMessage] = useState('')
-
-  // 📷 Old Camera function (still available if you want it)
-  const handleStartVerification = async () => {
-    const { status: cameraStatus } = await ImagePicker.requestCameraPermissionsAsync()
-    const { status: mediaStatus } = await ImagePicker.requestMediaLibraryPermissionsAsync()
-
-    if (cameraStatus !== 'granted' || mediaStatus !== 'granted') {
-      setMessage('Camera and media permissions are required to proceed.')
-      return
-    }
-
-    let result = await ImagePicker.launchCameraAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      quality: 0.7,
-    })
-
-    if (!result.canceled) {
-      setPhotoUri(result.assets[0].uri)
-      setStatus('preview')
-    }
-  }
 
   // 🖼️ New Gallery Picker
   const handlePickFromGallery = async () => {
@@ -81,7 +52,7 @@ const Verification = () => {
         <View style={styles.centerContainer}>
           <Image
             source={{ uri: photoUri }}
-            style={{ width: 250, height: 400, borderRadius: 12 }}
+            style={{ width: 250, height: 400, borderRadius: 16 }}
           />
           <View style={{ flexDirection: 'row', marginTop: 20 }}>
             <Pressable style={styles.startButton} onPress={handlePickFromGallery}>
@@ -125,7 +96,7 @@ const Verification = () => {
           <Text style={styles.sectionTitle}>Basic</Text>
           <Text style={styles.sectionSubtitle}>Full access to the application</Text>
           <View style={styles.listItem}>
-            <Ionicons name="checkmark-circle-outline" size={20} color="#00FF7F" />
+            <SimpleLineIcons name="book-open" size={16} color="#00FF7F" />
             <Text style={styles.listItemText}>Photo of your ID</Text>
           </View>
           <View style={styles.listItem}>
@@ -135,7 +106,7 @@ const Verification = () => {
 
           {/* Camera Option */}
           <Pressable style={styles.startButton} onPress={handlePickFromGallery}>
-            <Text style={styles.startButtonText}>Take Photo</Text>
+            <Text style={styles.startButtonText}>Start</Text>
           </Pressable>
         </View>
 
@@ -143,7 +114,7 @@ const Verification = () => {
           <Text style={styles.sectionTitle}>Advanced</Text>
           <Text style={styles.sectionSubtitle}>Increased limits</Text>
           <View style={styles.listItem}>
-            <Ionicons name="lock-closed-outline" size={20} color="#888" />
+            <Ionicons name="location" size={20} color="#00FF7F" />
             <Text style={[styles.listItemText, { color: '#888' }]}>Proof of address</Text>
           </View>
         </View>
@@ -165,29 +136,29 @@ const Verification = () => {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#000', padding: 20, paddingTop: 60 },
   header: { flexDirection: 'row', alignItems: 'center' },
-  headerTitle: { color: '#fff', fontSize: 24, fontWeight: 'bold', marginLeft: 20 },
+  headerTitle: { color: '#fff', fontSize: 20, fontWeight: 'bold', marginLeft: 20 },
   scrollContent: { paddingBottom: 20, marginTop: 20 },
   sectionCard: {
-    backgroundColor: '#1E1E1E',
+    backgroundColor: '#0F0F0F',
     padding: 20,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 20,
   },
   sectionTitle: { color: '#fff', fontSize: 18, fontWeight: 'bold' },
-  sectionSubtitle: { color: '#888', fontSize: 14, marginBottom: 15 },
+  sectionSubtitle: { color: '#AAAAAA', fontSize: 14, marginBottom: 15 },
   listItem: { flexDirection: 'row', alignItems: 'center', marginBottom: 10 },
   listItemText: { color: '#fff', fontSize: 16, marginLeft: 10 },
   startButton: {
-    backgroundColor: '#fff',
+    backgroundColor: '#222222',
     paddingVertical: 15,
     paddingHorizontal: 25,
-    borderRadius: 12,
+    borderRadius: 102,
     alignItems: 'center',
   },
-  startButtonText: { color: '#000', fontSize: 16, fontWeight: 'bold' },
+  startButtonText: { color: '#fff', fontSize: 15, fontWeight: 'semibold' },
   centerContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 },
   centerText: { color: '#fff', fontSize: 20, fontWeight: 'bold', textAlign: 'center' },
-  successSubtitle: { color: '#888', fontSize: 16, marginTop: 10, textAlign: 'center' },
+  successSubtitle: { color: '#AAAAAA', fontSize: 16, marginTop: 10, textAlign: 'center' },
   messageContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 },
   messageText: { color: 'red', fontSize: 16, textAlign: 'center' },
 })

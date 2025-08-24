@@ -56,25 +56,25 @@ const styles = StyleSheet.create({
   headerTitle: {
     color: '#fff',
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: 'semibold',
     marginLeft: 20,
   },
   content: {
     paddingBottom: 20,
   },
   sectionTitle: {
-    color: '#888',
+    color: '#AAAAAA',
     fontSize: 14,
-    fontWeight: 'bold',
+    fontWeight: '400',
     marginTop: 20,
     marginBottom: 10,
   },
   chatItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#1E1E1E',
+    backgroundColor: '#0F0F0F',
     padding: 20,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 10,
   },
   chatText: {
@@ -86,9 +86,9 @@ const styles = StyleSheet.create({
   phoneItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#1E1E1E',
+    backgroundColor: '#0F0F0F',
     padding: 20,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 10,
   },
   phoneInfo: {
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   phoneCountry: {
-    color: '#888',
+    color: '#AAAAAA',
     fontSize: 14,
     marginTop: 2,
   },

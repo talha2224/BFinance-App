@@ -15,39 +15,62 @@ const Edit = () => {
     { label: 'Limits & Restrictions', icon: 'filter-outline', status: 'soon' },
   ];
 
-  const handlePress = (option) => {
-    console.log(`Pressed option: ${option}`);
-  };
-
   return (
     <View style={styles.container}>
-      <Pressable onPress={()=>router.back()} style={styles.header}>
-        <Ionicons name="chevron-back" size={24} color="#fff" />
+      {/* Header */}
+      <Pressable onPress={() => router.back()} style={styles.header}>
+        <Ionicons name="chevron-back" size={20} color="#fff" />
         <Text style={styles.headerTitle}>Card *1234</Text>
       </Pressable>
+
       <ScrollView contentContainerStyle={styles.scrollContent}>
+        {/* Security Section */}
         <Text style={styles.sectionTitle}>SECURITY</Text>
         {securityOptions.map((item, index) => (
-          <Pressable key={index} style={styles.optionItem} onPress={() =>router.push("/home/card/pin")}>
-            <Ionicons name={item.icon} size={24} color="#fff" />
+          <Pressable
+            key={index}
+            style={styles.optionItem}
+            onPress={() => router.push('/home/card/pin')}
+          >
+            <View style={styles.iconWrapper}>
+              <Ionicons name={item.icon} size={20} color="#fff" />
+            </View>
             <Text style={styles.optionLabel}>{item.label}</Text>
           </Pressable>
         ))}
 
+        {/* Contacts Section */}
         <Text style={styles.sectionTitle}>CONTACTS</Text>
         {contactOptions.map((item, index) => (
-          <Pressable key={index} style={styles.optionItem} onPress={() =>router.push("/home/card/pin")}>
-            <Ionicons name={item.icon} size={24} color="#fff" />
+          <Pressable
+            key={index}
+            style={styles.optionItem}
+            onPress={() => router.push('/home/card/pin')}
+          >
+            <View style={styles.iconWrapper}>
+              <Ionicons name={item.icon} size={20} color="#fff" />
+            </View>
             <Text style={styles.optionLabel}>{item.label}</Text>
           </Pressable>
         ))}
 
+        {/* Info Section */}
         <Text style={styles.sectionTitle}>INFO</Text>
         {infoOptions.map((item, index) => (
-          <Pressable key={index} style={styles.optionItem} onPress={() =>router.push("/home/card/pin")}>
-            <Ionicons name={item.icon} size={24} color="#fff" />
+          <Pressable
+            key={index}
+            style={styles.optionItem}
+            onPress={() => router.push('/home/card/pin')}
+          >
+            <View style={styles.iconWrapper}>
+              <Ionicons name={item.icon} size={20} color="#fff" />
+            </View>
             <Text style={styles.optionLabel}>{item.label}</Text>
-            {item.status && <Text style={styles.statusText}>{item.status}</Text>}
+            {item.status && (
+              <View style={{backgroundColor:"#00FF7F",borderRadius:100,width:48,height:18,justifyContent:"center",alignItems:"center",marginLeft:15}}>
+                <Text style={styles.statusText}>{item.status}</Text>
+              </View>
+            )}
           </Pressable>
         ))}
       </ScrollView>
@@ -69,37 +92,45 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     color: '#fff',
-    fontSize: 24,
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontWeight: '600',
     marginLeft: 20,
   },
   scrollContent: {
     paddingBottom: 20,
   },
   sectionTitle: {
-    color: '#888',
+    color: '#AAAAAA',
     fontSize: 14,
-    fontWeight: 'bold',
+    fontWeight: '400',
     marginTop: 20,
     marginBottom: 10,
   },
   optionItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#1E1E1E',
-    padding: 15,
-    borderRadius: 12,
+    backgroundColor: '#0F0F0F',
+    paddingHorizontal: 15,
+    height:58,
+    borderRadius: 16,
     marginBottom: 10,
+  },
+  iconWrapper: {
+    backgroundColor: '#000',
+    width: 40,
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 100,
   },
   optionLabel: {
     color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 17,
+    fontWeight: 'medium',
     marginLeft: 15,
-    flex: 1,
   },
   statusText: {
-    color: '#00FF7F',
+    color: '#000',
     fontSize: 12,
     fontWeight: 'bold',
   },

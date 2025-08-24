@@ -8,7 +8,6 @@ import profile_img from '../../assets/images/home/profile_img.jpg';
 import BottomNavbar from '../../components/BottomNavbar';
 
 const placeholderProfile = 'https://placehold.co/60x60/333333/FFFFFF?text=P';
-const placeholderCard = 'https://placehold.co/150x90/00FF7F/000000?text=Card';
 const placeholderBTC = 'https://placehold.co/40x40/FF9900/FFFFFF?text=BTC';
 const placeholderTON = 'https://placehold.co/40x40/00BFFF/FFFFFF?text=TON';
 
@@ -18,48 +17,53 @@ const Home = () => {
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         {/* Header Section */}
-        <TouchableOpacity onPress={()=>router.push("/home/profile")} style={styles.header}>
+        <TouchableOpacity onPress={() => router.push("/home/profile")} style={styles.header}>
           <View style={styles.profileSection}>
             <Image source={profile_img || { uri: placeholderProfile }} style={styles.profileImage} />
             <View>
               <Text style={styles.greetingText}>Timur</Text>
             </View>
           </View>
-          <TouchableOpacity onPress={()=>router.push("/home/history")}><MaterialCommunityIcons name="clock-outline" size={28} color="#00E675" /></TouchableOpacity>
+          <TouchableOpacity onPress={() => router.push("/home/history")}><MaterialCommunityIcons name="clock-outline" size={28} color="#00E675" /></TouchableOpacity>
         </TouchableOpacity>
 
         {/* Balance Section */}
         <View style={styles.balanceSection}>
           <Text style={styles.balanceLabel}>Total balance</Text>
-          <Text style={styles.balanceValue}>$1,348</Text>
+          <Text style={styles.balanceValue}><Text style={{ color: "#585858" }}>$</Text>1,348</Text>
         </View>
 
         {/* Action Buttons */}
         <View style={styles.buttonContainer}>
-          <Pressable onPress={()=>router.push("/home/topup")} style={[styles.button, styles.topUpButton]}>
+          <Pressable onPress={() => router.push("/home/topup")} style={[styles.button, styles.topUpButton]}>
             <Ionicons name="add-circle" size={20} color="#000" />
             <Text style={styles.topUpButtonText}>Top-up</Text>
           </Pressable>
-          <Pressable onPress={()=>router.push("/home/withdraw")} style={[styles.button, styles.withdrawButton]}>
+          <Pressable onPress={() => router.push("/home/withdraw")} style={[styles.button, styles.withdrawButton]}>
             <Ionicons name="remove-circle" size={20} color="#fff" />
             <Text style={styles.withdrawButtonText}>Withdraw</Text>
           </Pressable>
         </View>
 
-        {/* Crypto Card Section */}
-        <View style={styles.cardContainer}>
-          <View style={styles.cardTextContent}>
-            <Text style={styles.cardTitle}>Pay crypto like fiat</Text>
-            <Text style={styles.cardSubtitle}>Issue your Visa crypto-card in seconds</Text>
-          </View>
-          <Image source={pay_card_img || { uri: placeholderCard }} style={styles.payCardImage} />
-        </View>
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} contentContainerStyle={styles.scrollViewContainer}>
+          {
+            [1, 2, 3]?.map((i, index) => (
+              <View key={i} style={styles.cardContainer}>
+                <View style={styles.cardTextContent}>
+                  <Text style={styles.cardTitle}>Pay crypto {"\n"}like fiat</Text>
+                  <Text style={styles.cardSubtitle}>Issue your Visa crypto-card{"\n"}in seconds</Text>
+                </View>
+                <Image source={pay_card_img} style={styles.payCardImage} />
+              </View>
+            ))
+          }
+        </ScrollView>
 
         {/* Accounts List */}
         <View style={styles.accountsSection}>
           <Text style={styles.sectionTitle}>FIAT</Text>
           {/* Fiat Accounts */}
-          <Pressable onPress={()=>router.push("/home/card/notfound")} style={styles.accountItem}>
+          <Pressable onPress={() => router.push("/home/card/notfound")} style={styles.accountItem}>
             <View style={styles.accountIcon}>
               <Text style={styles.accountIconText}>$</Text>
             </View>
@@ -68,7 +72,7 @@ const Home = () => {
             </View>
             <Text style={styles.accountValue}>10,000 USD</Text>
           </Pressable>
-          <Pressable onPress={()=>router.push("/home/card/notfound")} style={styles.accountItem}>
+          <Pressable onPress={() => router.push("/home/card/notfound")} style={styles.accountItem}>
             <View style={styles.accountIcon}>
               <Text style={styles.accountIconText}>€</Text>
             </View>
@@ -80,7 +84,7 @@ const Home = () => {
 
           <Text style={[styles.sectionTitle, { marginTop: 20 }]}>CRYPTO</Text>
           {/* Crypto Accounts */}
-          <Pressable onPress={()=>router.push("/home/chart")} style={styles.accountItem}>
+          <Pressable onPress={() => router.push("/home/chart")} style={styles.accountItem}>
             <Image source={btc_img || { uri: placeholderBTC }} style={styles.cryptoIcon} />
             <View style={styles.accountInfo}>
               <Text style={styles.accountName}>Bitcoin</Text>
@@ -88,7 +92,7 @@ const Home = () => {
             </View>
             <Text style={styles.accountValue}>$10,000</Text>
           </Pressable>
-          <Pressable onPress={()=>router.push("/home/chart")} style={styles.accountItem}>
+          <Pressable onPress={() => router.push("/home/chart")} style={styles.accountItem}>
             <Image source={btc_img || { uri: placeholderTON }} style={styles.cryptoIcon} />
             <View style={styles.accountInfo}>
               <Text style={styles.accountName}>Toncoin</Text>
@@ -109,7 +113,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#000',
-    paddingTop:50
+    paddingTop: 50
   },
   scrollContent: {
     padding: 20,
@@ -119,7 +123,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 15,
   },
   profileSection: {
     flexDirection: 'row',
@@ -140,8 +144,9 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   balanceLabel: {
-    color: '#888',
+    color: '#484848',
     fontSize: 16,
+    fontWeight: "medium"
   },
   balanceValue: {
     color: '#fff',
@@ -158,7 +163,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 15,
-    borderRadius: 12,
+    borderRadius: 10,
     flex: 1,
   },
   topUpButton: {
@@ -166,7 +171,8 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   withdrawButton: {
-    backgroundColor: '#1E1E1E',
+    borderWidth: 1,
+    borderColor: '#484848',
     marginLeft: 10,
   },
   topUpButtonText: {
@@ -181,15 +187,20 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginLeft: 5,
   },
+  scrollViewContainer: {
+  },
   cardContainer: {
-    backgroundColor: '#1E1E1E',
+    backgroundColor: '#0F0F0F',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent:"space-between",
+    justifyContent: "space-between",
     padding: 20,
-    borderRadius: 12,
-    marginBottom: 30,
+    borderRadius: 16,
     overflow: 'hidden',
+    width: 340,
+    height: 144,
+    marginRight: 16,
+    marginBottom: 30,
   },
   cardTextContent: {
     flex: 1,
@@ -198,40 +209,43 @@ const styles = StyleSheet.create({
   cardTitle: {
     color: '#fff',
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: '700',
     marginBottom: 5,
+    lineHeight:35
   },
   cardSubtitle: {
-    color: '#888',
-    fontSize: 14,
+    color: 'white',
+    fontSize: 13,
   },
   payCardImage: {
-    width: 150,
-    height: 90,
+    width: 96,
+    height: 141,
     resizeMode: 'contain',
-    marginRight:-30
+    marginRight: 5,
+    marginTop:-24
   },
   accountsSection: {
     width: '100%',
   },
   sectionTitle: {
-    color: '#888',
+    color: '#AAAAAA',
     fontSize: 14,
     marginBottom: 10,
   },
   accountItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#1E1E1E',
-    padding: 15,
-    borderRadius: 12,
+    backgroundColor: '#0F0F0F',
+    paddingHorizontal: 15,
+    borderRadius: 16,
     marginBottom: 10,
+    height:58,
   },
   accountIcon: {
     width: 40,
     height: 40,
-    borderRadius: 20,
-    backgroundColor: '#333',
+    borderRadius: 200,
+    backgroundColor: '#212121',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -255,7 +269,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   cryptoValue: {
-    color: '#888',
+    color: '#AAAAAA',
     fontSize: 14,
     marginTop: 2,
   },

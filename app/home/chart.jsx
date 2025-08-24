@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   balanceSubText: {
-    color: '#888',
+    color: '#AAAAAA',
     fontSize: 16,
   },
   chartImage: {
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   historyTitle: {
-    color: '#888',
+    color: '#AAAAAA',
     fontSize: 14,
     fontWeight: 'bold',
     marginBottom: 10,
@@ -126,10 +126,11 @@ const styles = StyleSheet.create({
   transactionItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#1E1E1E',
-    padding: 15,
-    borderRadius: 12,
+    backgroundColor: '#0F0F0F',
+    paddingHorizontal: 15,
+    borderRadius: 16,
     marginBottom: 10,
+    height:58,
   },
   transactionTextContainer: {
     flex: 1,
@@ -141,7 +142,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   transactionTime: {
-    color: '#888',
+    color: '#AAAAAA',
     fontSize: 12,
   },
   transactionAmount: {

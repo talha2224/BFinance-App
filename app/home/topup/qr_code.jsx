@@ -51,12 +51,12 @@ const styles = StyleSheet.create({
   headerTitle: {
     color: '#fff',
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: 'semibold',
     marginLeft: 20,
   },
   qrCodeContainer: {
-    backgroundColor: '#1E1E1E',
-    borderRadius: 12,
+    backgroundColor: '#0F0F0F',
+    borderRadius: 16,
     padding: 20,
     alignItems: 'center',
     width: '100%',
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   infoText: {
-    color: '#888',
+    color: '#AAAAAA',
     fontSize: 14,
     textAlign: 'center',
     marginBottom: 10,

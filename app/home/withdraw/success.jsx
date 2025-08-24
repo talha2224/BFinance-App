@@ -32,8 +32,8 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     color: '#fff',
-    fontSize: 24,
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontWeight: 'semibold',
     marginLeft: 20,
   },
   content: {
@@ -43,13 +43,13 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#fff',
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
     marginTop: 20,
     marginBottom: 10,
   },
   subtitle: {
-    color: '#888',
+    color: '#AAAAAA',
     fontSize: 16,
     textAlign: 'center',
   },

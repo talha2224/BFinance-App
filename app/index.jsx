@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
         fontWeight: '600',
     },
     orText: {
-        color: '#888',
+        color: '#AAAAAA',
         fontSize: 16,
         marginBottom: 20,
     },

@@ -4,21 +4,26 @@ import { useRoute } from '@react-navigation/native';
 import { router } from 'expo-router';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
 const BottomNavbar = () => {
   const insets = useSafeAreaInsets();
   const route = useRoute();
+
   const tabs = [
     { link: "home/index", name: 'Home', icon: <Ionicons name="home-outline" size={24} color="#A2ACB0" />, activeIcon: <Ionicons name="home-outline" size={24} color="#00E675" /> },
     { link: "home/card", name: 'Card', icon: <Ionicons name="card-outline" size={24} color="#A2ACB0" />, activeIcon: <Ionicons name="card-outline" size={24} color="#00E675" /> },
     { link: "home/services", name: 'Services', icon: <MaterialCommunityIcons name="view-dashboard-outline" size={24} color="#A2ACB0" />, activeIcon: <MaterialCommunityIcons name="view-dashboard-outline" size={24} color="#00E675" /> },
   ];
 
-
   return (
     <View style={[styles.navContainer, { paddingBottom: insets.bottom }]}>
       <View style={styles.navBar}>
         {tabs.map((tab) => (
-          <TouchableOpacity key={tab.name} style={styles.navItem} onPress={() => router.push(tab?.link === "home/index" ? "home" : tab?.link)}>
+          <TouchableOpacity 
+            key={tab.name} 
+            style={styles.navItem} 
+            onPress={() => router.push(tab?.link === "home/index" ? "home" : tab?.link)}
+          >
             {route?.name?.includes(tab?.link) ? tab.activeIcon : tab.icon}
           </TouchableOpacity>
         ))}
@@ -36,7 +41,8 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    paddingTop: 14
+    paddingTop: 14,
+    paddingHorizontal: 0
   },
   navBar: {
     flexDirection: 'row',

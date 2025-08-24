@@ -26,11 +26,11 @@ const History_details = () => {
         <Text style={styles.transactionStatus}>Success</Text>
 
         <View style={styles.infoBox}>
-          <View style={styles.infoRow}>
+          <View style={[styles.infoRow,{paddingBottom:10,borderBottomColor:"#1E1E1E",borderBottomWidth:1}]}>
             <Text style={styles.infoLabel}>Billed amount</Text>
             <Text style={styles.infoValue}>10 USD</Text>
           </View>
-          <View style={styles.infoRow}>
+          <View style={[styles.infoRow,{paddingTop:10}]}>
             <Text style={styles.infoLabel}>Fee</Text>
             <Text style={styles.infoValue}>0.5$</Text>
           </View>
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     color: '#fff',
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: 'semibold',
     marginLeft: 20,
   },
   content: {
@@ -85,30 +85,29 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   transactionAmount: {
-    color: '#FF0000', // Assuming a red color for negative
+    color: '#FF0000',
     fontSize: 36,
     fontWeight: 'bold',
     marginBottom: 5,
   },
   transactionStatus: {
-    color: '#00FF7F', // Assuming a green color for success
-    fontSize: 14,
+    color: '#707579',
+    fontSize: 17,
     marginBottom: 30,
   },
   infoBox: {
     width: '100%',
-    backgroundColor: '#1E1E1E',
-    borderRadius: 12,
+    backgroundColor: '#0F0F0F',
+    borderRadius: 16,
     padding: 20,
     marginBottom: 20,
   },
   infoRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 10,
   },
   infoLabel: {
-    color: '#888',
+    color: '#AAAAAA',
     fontSize: 16,
   },
   infoValue: {
@@ -119,10 +118,11 @@ const styles = StyleSheet.create({
   supportButton: {
     width: '100%',
     backgroundColor: '#ffff',
-    paddingVertical: 15,
-    borderRadius: 12,
+    borderRadius: 16,
     alignItems: 'center',
+    justifyContent:"center",
     marginTop: 20,
+    height:42
   },
   supportButtonText: {
     color: '#000',

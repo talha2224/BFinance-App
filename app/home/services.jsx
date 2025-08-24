@@ -12,7 +12,7 @@ const Services = () => {
         {/* eSIM Service */}
         <Pressable style={styles.serviceItem}>
           <View style={styles.iconBackground}>
-            <Ionicons name="cellular-outline" size={24} color="#fff" />
+            <Ionicons name="cellular-outline" size={20} color="#fff" />
           </View>
           <View style={styles.serviceInfo}>
             <View style={styles.titleContainer}>
@@ -28,7 +28,7 @@ const Services = () => {
         {/* Flights Service */}
         <Pressable style={styles.serviceItem}>
           <View style={styles.iconBackground}>
-            <Ionicons name="airplane-outline" size={24} color="#fff" />
+            <Ionicons name="airplane-outline" size={20} color="#fff" />
           </View>
           <View style={styles.serviceInfo}>
             <View style={styles.titleContainer}>
@@ -44,7 +44,7 @@ const Services = () => {
         {/* Stays Service */}
         <Pressable style={styles.serviceItem}>
           <View style={styles.iconBackground}>
-            <Ionicons name="bed-outline" size={24} color="#fff" />
+            <Ionicons name="bed-outline" size={20} color="#fff" />
           </View>
           <View style={styles.serviceInfo}>
             <View style={styles.titleContainer}>
@@ -60,7 +60,7 @@ const Services = () => {
         {/* Airport Lounges Service */}
         <Pressable style={styles.serviceItem}>
           <View style={styles.iconBackground}>
-            <Ionicons name="bag-handle-outline" size={24} color="#fff" />
+            <Ionicons name="bag-handle-outline" size={20} color="#fff" />
           </View>
           <View style={styles.serviceInfo}>
             <View style={styles.titleContainer}>
@@ -92,8 +92,8 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     color: '#fff',
-    fontSize: 24,
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontWeight: 'semibold',
   },
   serviceList: {
     width: '100%',
@@ -102,15 +102,20 @@ const styles = StyleSheet.create({
   serviceItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#1E1E1E',
-    padding: 20,
-    borderRadius: 12,
+    backgroundColor: '#0F0F0F',
+    padding:10,
+    paddingHorizontal:10,
+    borderRadius: 16,
     marginBottom: 15,
+    height:68
   },
   iconBackground: {
-    backgroundColor: '#333',
-    padding: 10,
-    borderRadius: 8,
+    backgroundColor: '#000',
+    width:40,
+    height:40,
+    justifyContent:"center",
+    alignItems:"center",
+    borderRadius: 800,
     marginRight: 15,
   },
   serviceInfo: {
@@ -123,23 +128,25 @@ const styles = StyleSheet.create({
   },
   serviceTitle: {
     color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 17,
+    fontWeight: 'medium',
     marginRight: 8,
   },
   soonTag: {
-    backgroundColor: '#333',
-    paddingHorizontal: 8,
-    paddingVertical: 3,
-    borderRadius: 10,
+    backgroundColor: '#00FF7F',
+    borderRadius: 100,
+    width:48,
+    height:18,
+    justifyContent:"center",
+    alignItems:"center"
   },
   soonText: {
-    color: '#00FF7F',
+    color: '#000',
     fontSize: 12,
     fontWeight: 'bold',
   },
   serviceDescription: {
-    color: '#888',
+    color: '#AAAAAA',
     fontSize: 14,
   },
 });

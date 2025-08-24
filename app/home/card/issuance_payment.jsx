@@ -120,8 +120,8 @@ const styles = StyleSheet.create({
     },
     headerTitle: {
         color: '#fff',
-        fontSize: 24,
-        fontWeight: 'bold',
+        fontSize: 20,
+        fontWeight: 'semibold',
         marginLeft: 20,
     },
     scrollContent: {
@@ -143,14 +143,14 @@ const styles = StyleSheet.create({
         width: 200,
         height: 300,
         resizeMode: 'contain',
-        borderRadius: 12,
+        borderRadius: 16,
     },
     paymentSection: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#1E1E1E',
+        backgroundColor: '#0F0F0F',
         padding: 15,
-        borderRadius: 12,
+        borderRadius: 16,
         marginBottom: 20,
         justifyContent: 'space-between',
     },
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     paymentAmount: {
-        color: '#888',
+        color: '#AAAAAA',
         fontSize: 14,
         marginLeft: 10,
     },
@@ -172,23 +172,23 @@ const styles = StyleSheet.create({
         padding: 5,
     },
     sectionTitle: {
-        color: '#888',
-        fontSize: 14,
-        fontWeight: 'bold',
+        color: '#AAAAAA',
+        fontSize: 13,
+        fontWeight: '400',
         marginTop: 20,
         marginBottom: 10,
     },
     optionItem: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#1E1E1E',
+        backgroundColor: '#0F0F0F',
         padding: 15,
-        borderRadius: 12,
+        borderRadius: 16,
         marginBottom: 10,
     },
     optionIcon: {
-        width: 24,
-        height: 24,
+        width: 20,
+        height: 20,
         resizeMode: 'contain',
     },
     optionTextContainer: {
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     optionAmount: {
-        color: '#888',
+        color: '#AAAAAA',
         fontSize: 12,
     },
     optionValue: {
@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
     payButton: {
         backgroundColor: '#fff',
         paddingVertical: 15,
-        borderRadius: 12,
+        borderRadius: 16,
         alignItems: 'center',
         marginBottom: 20,
     },
@@ -229,13 +229,13 @@ const styles = StyleSheet.create({
     },
     successTitle: {
         color: '#fff',
-        fontSize: 24,
+        fontSize: 20,
         fontWeight: 'bold',
         marginTop: 20,
         marginBottom: 10,
     },
     successSubtitle: {
-        color: '#888',
+        color: '#AAAAAA',
         fontSize: 16,
         textAlign: 'center',
     },

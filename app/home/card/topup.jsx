@@ -73,17 +73,17 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     color: '#fff',
-    fontSize: 24,
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontWeight: 'semibold',
     marginLeft: 20,
   },
   feeContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#1E1E1E',
+    backgroundColor: '#0F0F0F',
     padding: 15,
-    borderRadius: 12,
+    borderRadius: 16,
     marginBottom: 20,
   },
   feeText: {
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   feeSubText: {
-    color: '#888',
+    color: '#AAAAAA',
     fontSize: 14,
     marginLeft: 10,
     flex: 1,
@@ -106,22 +106,22 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   inputLabel: {
-    color: '#888',
+    color: '#AAAAAA',
     fontSize: 14,
     marginBottom: 5,
   },
   input: {
-    backgroundColor: '#1E1E1E',
+    backgroundColor: '#0F0F0F',
     color: '#fff',
     padding: 15,
-    borderRadius: 12,
+    borderRadius: 16,
     fontSize: 16,
     marginBottom: 20,
   },
   continueButton: {
     backgroundColor: '#fff',
     paddingVertical: 15,
-    borderRadius: 12,
+    borderRadius: 16,
     alignItems: 'center',
   },
   continueButtonDisabled: {

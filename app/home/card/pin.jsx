@@ -174,8 +174,8 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     color: '#fff',
-    fontSize: 24,
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontWeight: 'semibold',
     marginLeft: 20,
   },
   content: {
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
     borderRadius: 35,
-    backgroundColor: '#1E1E1E',
+    backgroundColor: '#0F0F0F',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -228,13 +228,13 @@ const styles = StyleSheet.create({
   },
   keypadText: {
     color: '#fff',
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
   },
   continueButton: {
     backgroundColor: '#00E675',
     paddingVertical: 15,
-    borderRadius: 12,
+    borderRadius: 16,
     alignItems: 'center',
     width: '100%',
     maxWidth: 300,
@@ -253,13 +253,13 @@ const styles = StyleSheet.create({
   },
   successTitle: {
     color: '#fff',
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
     marginTop: 20,
     marginBottom: 10,
   },
   successSubtitle: {
-    color: '#888',
+    color: '#AAAAAA',
     fontSize: 16,
     textAlign: 'center',
   },
